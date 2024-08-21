@@ -4,27 +4,21 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.core.annotation.AnnotationUtils;
-
-import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Product {
+public class Cards {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false, unique = true)
+    private String cardnumber;
     @Column(nullable = false)
-    private String name;
+    private String expireDate;
     @Column(nullable = false)
-    private Double price;
-    private Timestamp period_date;
-    @Column(nullable = false)
-    private Integer amount;
-    @Column(nullable = false)
-    private String description;
+    private String cardname;
 
 }
